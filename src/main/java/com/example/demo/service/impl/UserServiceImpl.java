@@ -20,15 +20,21 @@ public class UserServiceImpl implements UserService {
     GoodsRepo godsRepo;
     @Override
     public Long getuser(String username,String password) {
+        Long ll = 0L;
         String sql = "select t.id  from user t   ";
         sql+= "  where t.username =:username";
-        sql+= "  and t.password =:password";
+        sql+= "  and t.password =:password  limit 1,1";
         Query query = em.createNativeQuery(sql).setParameter("username",username).setParameter("password",password);
-        Object obj = query.getSingleResult();
-        if(obj != null ){
-            return Long.valueOf(obj.toString());
+        try {
+            Object obj = query.getSingleResult();
+            if(obj != null ){
+                ll = Long.valueOf(obj.toString());
+            }
+        }catch (Exception e){
+
         }
-        return 0L;
+
+        return ll;
     }
 
     @Override

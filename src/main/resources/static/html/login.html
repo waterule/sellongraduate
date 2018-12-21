@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="t1.icon" type="image/x-icon" />
     <meta charset="UTF-8">
     <title>毕业甩卖网</title>
 </head>
@@ -13,6 +14,7 @@
      <p>密码：<input id="passw"></input></p>
      <button id ='login'>确定</button>
      <button id ='register'>注册</button>
+     <p><a href="swagger-ui.html">接口调试入口</a></p>
 
  </div>
 </body>
@@ -32,10 +34,12 @@
                 dataType: "text",
 
                 success: function (data) {
-                    if(data == "00")
-                        location.href = "html/pubgoos.html?userid="+;
-                    else
-                        location.href = "error.html";
+                    if(data != "0" && data != null)
+                        location.href = "html/pubgoos.html?userid="+data;
+                    else{
+                        alert("用户名密码错误 ！");
+                    }
+
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("net error !!!");
@@ -45,7 +49,7 @@
         });
         $("#register").click(function () {
 
-            location.href = "register" ;
+            location.href = "html/register.html" ;
         });
     })
 </script>
