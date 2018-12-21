@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>毕业甩卖网</title>
+</head>
+
+<body>
+ <div>
+
+     <h1>登陆</h1>
+     <p> 用户名：<input id="usern"></input></p>
+     <p>密码：<input id="passw"></input></p>
+     <button id ='login'>确定</button>
+     <button id ='register'>注册</button>
+
+ </div>
+</body>
+
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+
+<script>
+
+    $(function () {
+
+        $("#login").click(function () {
+            var user = $('#usern').val();
+            var pass = $('#passw').val();
+            $.ajax({
+                url:"/login/"+user +"/"+pass,
+                type:"GET",
+                dataType: "text",
+
+                success: function (data) {
+                    if(data == "00")
+                        location.href = "html/pubgoos.html?userid="+;
+                    else
+                        location.href = "error.html";
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("net error !!!");
+                }
+            });
+
+        });
+        $("#register").click(function () {
+
+            location.href = "register" ;
+        });
+    })
+</script>
+</html>

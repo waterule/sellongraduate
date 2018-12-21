@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<h1>注册</h1>
+<p> 用户名：<input id="usern2"></input></p>
+<p>密码：<input id ='passw2'></input></p>
+
+<button id ='register1'>注册</button>
+</body>
+<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+
+<script>
+    $(function () {
+
+        $("#register1").click(function () {
+            var user = $('#usern2').val();
+            var pass = $('#passw2').val();
+            location.href = "regs/"+user +"/"+pass;
+        });
+    })
+</script>
+
+</html>
