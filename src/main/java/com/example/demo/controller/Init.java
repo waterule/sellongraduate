@@ -1,15 +1,18 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
+@Api("登陆入口")
 @RestController
 public class Init {
     @Autowired
     UserService userser;
+
+
    @RequestMapping("/")
    public ModelAndView init(){
 
@@ -17,10 +20,8 @@ public class Init {
    }
     @RequestMapping("/login/{username}/{password}")
     public String getUser(@PathVariable String username, @PathVariable String password){
-        boolean bb =   userser.getuser(username,password);
-        if (bb)
-            return "00";
-        return "11";
+        Long usreid  =   userser.getuser(username,password);
+        return String.valueOf(usreid);
 
     }
     @RequestMapping("/register")

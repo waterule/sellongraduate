@@ -19,16 +19,16 @@ public class UserServiceImpl implements UserService {
     @Autowired
     GoodsRepo godsRepo;
     @Override
-    public boolean getuser(String username,String password) {
+    public Long getuser(String username,String password) {
         String sql = "select t.id  from user t   ";
         sql+= "  where t.username =:username";
         sql+= "  and t.password =:password";
         Query query = em.createNativeQuery(sql).setParameter("username",username).setParameter("password",password);
         Object obj = query.getSingleResult();
         if(obj != null ){
-            return true;
+            return Long.valueOf(obj.toString());
         }
-        return false;
+        return 0L;
     }
 
     @Override
