@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>毕业甩卖网</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<style>
+    .head{
+        margin-right: 50%;
+    }
+    .father div{
+        float:left;
+        border:1px solid #000;
+        margin:5px;
+        padding:5px;
+    }
+    
+</style>
+<body>
+<div>
+    <h1>大四毕业甩卖物品</h1>
+    <img src="/images/timg.jpg" height="200px">
+    <p class="head">
+    <a href="http://localhost:8080/html/login.html">登录</a>
+    <a href="http://localhost:8080/html/register.html">注册</a>
+    </p>
+    <p><a href="../swagger-ui.html">接口调试入口</a></p>
+    <div class="father"></div>
+</div>
+
+</body>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script>
+$(function () {
+    $.ajax({
+       type: 'get',
+       url:'/getgoods',
+        success:function (data) {
+            for(var i=0;i<data.length;i++){
+                //访问每一个的属性，根据属性拿到值
+                var str = '<div rel=i>' +
+                    '<ul><li class ="name">' + '名称：'+data[i].name+
+                    '</li>' +
+                    '<li class ="info">' +'物品说明：'+data[i].info+
+                    '</li>'+
+                    '<li class ="addr">' +'地址：'+data[i].addr+
+                    '</li>'+
+                    '<li class ="teltype">' + '联系方式：'+data[i].teltype+
+                   '</li>'+
+                    '<li class ="price">' + '价格：'+data[i].price+
+                    '</li>'+
+                    '</ul>' +
+                    '</div>';
+
+                $('.father').append(str);
+                //将拿到的值显示到jsp页面
+              /*  $(this).html('名称：'+data[i].name);
+                $('.info').html('物品说明：'+data[i].info);
+                $('.addr').html('地址：'+data[i].addr);
+                $('.teltype').html('联系方式：'+data[i].teltype);*/
+            }
+
+            console.log(data);
+        }
+    });
+});
+
+</script>
+</html>

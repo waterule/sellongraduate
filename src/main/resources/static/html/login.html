@@ -14,12 +14,13 @@
      <p>密码：<input id="passw"></input></p>
      <button id ='login'>确定</button>
      <button id ='register'>注册</button>
-     <p><a href="swagger-ui.html">接口调试入口</a></p>
+
 
  </div>
 </body>
 
 <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/common.js"></script>
 
 <script>
 
@@ -35,7 +36,7 @@
 
                 success: function (data) {
                     if(data != "0" && data != null)
-                        location.href = "html/pubgoos.html?userid="+data;
+                        location.href =  "/html/pubgoos.html?userid="+data;
                     else{
                         alert("用户名密码错误 ！");
                     }

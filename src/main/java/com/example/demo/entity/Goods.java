@@ -17,6 +17,26 @@ public class Goods {
     private  String userid;
     @Column(name = "addr")
     private String addr;
+    @Column(name = "teltype")
+    private String teltype;
+    @Column(name = "price")
+    private String price;
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getTeltype() {
+        return teltype;
+    }
+
+    public void setTeltype(String teltype) {
+        this.teltype = teltype;
+    }
 
     public String getAddr() {
         return addr;
