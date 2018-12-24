@@ -16,6 +16,7 @@
         padding:5px;
     }
    .hea{
+       background-color: #B7E5E2;
        border: 1px solid #A9E5BC;
        border-radius: 5px;
        margin:80px 40px;
@@ -25,10 +26,10 @@
        font-weight: bold;
    }
    .bord{
-       float:right;
+       float:left;
        border: 1px solid #A9E5BC;
        border-radius: 10px;
-       margin:10px 10px;
+       margin:30px;
        background-color: #76E5E3;
        padding:5px 10px;
    }
@@ -45,16 +46,23 @@
     .hr{
         margin-top: 30px;
     }
+    .sue{
+        display: none;
+        float: left;
+        margin: 30px;
+    }
 </style>
 <body>
 <div class="top">
-    <a class="hea" href="http://localhost:8080/">校摊网</a>
+    <a class="hea" href="http://localhost:8080/">校摊网</a></br>
 
     <span class="head">
     <a class="bord" href="http://localhost:8080/html/login.html">登录</a>
     <a class="bord" href="http://localhost:8080/html/register.html">注册</a>
     </span>
-    <hr class="hr" width="80%"/>
+    <div class="sue">欢迎：</div></br>
+    <a  class="bord" href="http://localhost:8080/html/pubgoos.html">发布物品</a>
+    <hr class="hr" width="90%"/>
     <p><a href="../swagger-ui.html">接口调试入口</a></p>
     <div class="father"></div>
 </div>
@@ -63,6 +71,12 @@
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script>
 $(function () {
+    var username = sessionStorage.getItem("username");
+    $(".sue").append(username);
+    if(username != null){
+        $(".head").css("display","none");
+        $(".sue").css("display","block");
+    }
     $.ajax({
        type: 'get',
        url:'/getgoods',
@@ -91,7 +105,7 @@ $(function () {
                 $('.teltype').html('联系方式：'+data[i].teltype);*/
             }
 
-            console.log(data);
+
         }
     });
 });

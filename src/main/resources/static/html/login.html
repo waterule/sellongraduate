@@ -35,8 +35,11 @@
                 dataType: "text",
 
                 success: function (data) {
-                    if(data != "0" && data != null)
-                        location.href =  "http://localhost:8080/html/pubgoos.html?userid="+data;
+                    if(data != "0" && data != null){
+                        sessionStorage.setItem("username",user);
+                        location.href =  "http://localhost:8080/html/goodlist.html";
+                    }
+
                     else{
                         alert("用户名密码错误 ！");
                     }
