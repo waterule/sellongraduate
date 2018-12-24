@@ -6,9 +6,8 @@ import com.example.demo.service.UserService;
 import com.example.demo.vo.RespCom;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.hibernate.annotations.GeneratorType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -58,8 +57,7 @@ public class Init {
     }
     @ApiOperation(value = "发布物品")
     @PostMapping(value = "/savegoods")
-
-    public RespCom saveGood(@RequestBody Goods goods){
+    public  RespCom saveGood(@RequestBody Goods goods){
         RespCom resp = new RespCom();
         grepo.save(goods);
         resp.setRescode("00");

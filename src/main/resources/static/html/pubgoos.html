@@ -28,7 +28,6 @@
             var d =$('#teltype').val();
             var e = $('#price').val();
 
-
             var goods ={
 
                 addr: a,
@@ -45,16 +44,17 @@
                 dataType:'json',
                 contentType : "application/json",
                 data:JSON.stringify(goods),
-                success:function (data) {
-                    if(data.rescode == '00')
+                success:function () {
+                    alert('hello');
                      location.href = 'http://localhost:8080/html/goodlist.html';
                 },
-                error:function (data) {
-                    console.log(data);
+                error:function () {
+                    console.log('fuck');
 
 
                 }
             });
+            location.href = 'http://localhost:8080/html/goodlist.html';
 
         });
     });

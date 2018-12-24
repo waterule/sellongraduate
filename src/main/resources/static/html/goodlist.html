@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>毕业甩卖网</title>
+    <title>校摊网</title>
     <script src="../js/jquery-3.3.1.min.js"></script>
 </head>
 <style>
@@ -11,20 +11,50 @@
     }
     .father div{
         float:left;
-        border:1px solid #000;
+        border:1px solid #A9E5BC;
         margin:5px;
         padding:5px;
     }
-    
+   .hea{
+       border: 1px solid #A9E5BC;
+       border-radius: 5px;
+       margin:80px 40px;
+       padding: 10px;
+       font-size: 3em;
+      font-family:NSimSun;
+       font-weight: bold;
+   }
+   .bord{
+       float:right;
+       border: 1px solid #A9E5BC;
+       border-radius: 10px;
+       margin:10px 10px;
+       background-color: #76E5E3;
+       padding:5px 10px;
+   }
+    a{
+        cursor: pointer;
+        text-decoration: none;
+
+
+    }
+    .top{
+        margin: 40px;
+        padding:5px;
+    }
+    .hr{
+        margin-top: 30px;
+    }
 </style>
 <body>
-<div>
-    <h1>大四毕业甩卖物品</h1>
-    <img src="/images/timg.jpg" height="200px">
-    <p class="head">
-    <a href="http://localhost:8080/html/login.html">登录</a>
-    <a href="http://localhost:8080/html/register.html">注册</a>
-    </p>
+<div class="top">
+    <a class="hea" href="http://localhost:8080/">校摊网</a>
+
+    <span class="head">
+    <a class="bord" href="http://localhost:8080/html/login.html">登录</a>
+    <a class="bord" href="http://localhost:8080/html/register.html">注册</a>
+    </span>
+    <hr class="hr" width="80%"/>
     <p><a href="../swagger-ui.html">接口调试入口</a></p>
     <div class="father"></div>
 </div>

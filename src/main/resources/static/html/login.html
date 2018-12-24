@@ -36,7 +36,7 @@
 
                 success: function (data) {
                     if(data != "0" && data != null)
-                        location.href =  "/html/pubgoos.html?userid="+data;
+                        location.href =  "http://localhost:8080/html/pubgoos.html?userid="+data;
                     else{
                         alert("用户名密码错误 ！");
                     }
@@ -50,7 +50,7 @@
         });
         $("#register").click(function () {
 
-            location.href = "html/register.html" ;
+            location.href = "http://localhost:8080/html/register.html" ;
         });
     })
 </script>
