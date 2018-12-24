@@ -2,7 +2,6 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="t1.icon" type="image/x-icon" />
     <title>发布物品</title>
 </head>
 <body>
@@ -42,19 +41,15 @@
                 url:'/savegoods',
                 type:'POST',
                 dataType:'json',
+                async:false,
                 contentType : "application/json",
                 data:JSON.stringify(goods),
                 success:function () {
                     alert('hello');
-                     location.href = 'http://localhost:8080/html/goodlist.html';
-                },
-                error:function () {
-                    console.log('fuck');
-
+                    console.log("df");
 
                 }
             });
-            location.href = 'http://localhost:8080/html/goodlist.html';
 
         });
     });
