@@ -2,30 +2,50 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="t1.icon" type="image/x-icon" />
     <title>发布物品</title>
 </head>
+<style>
+    #fa{
+        border: 1px solid #A9E5BC;
+        border-radius: 5px;
+        padding:5px;
+    }
+</style>
 <body>
-<form>
+<h1>发布我的物品</h1>
+
     <p>物品名称：<input id = 'name'></input></p>
     <p>物品说明：<input id = 'info'></input></p>
     <p>地址：<input id = 'addr'></input></p>
     <p>联系方式：<input id ='teltype'></input></p>
     <p>价格：<input id='price'></input></inpu></p>
-    <button id="fa">提交</button>
-</form>
+    <form action="http://localhost:8080/fileUpload" method="post" enctype="multipart/form-data">
+        <label>上传图片</label>
+        <input type="file" name="file"/>
+        <input type="submit" value="上传"/>
+    </form>
+
+    <span id="fa">提交</span>
+
 </body>
 <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/common.js"></script>
 <script>
     $(function () {
-
+        var usrid = sessionStorage.getItem("username");
+        if(usrid == null){
+            alert("请先登录");
+            location.href = "http://localhost:8080/html/login.html";
+        }
         $("#fa").click(function () {
-            var usrid = $.getUrlParam('userid');
+
             var a =$('#addr').val();
             var b =$('#info').val();
             var c =$('#name').val();
             var d =$('#teltype').val();
             var e = $('#price').val();
+            var f =
 
             var goods ={
 
@@ -40,16 +60,21 @@
             $.ajax({
                 url:'/savegoods',
                 type:'POST',
+
                 dataType:'json',
-                async:false,
                 contentType : "application/json",
                 data:JSON.stringify(goods),
                 success:function () {
-                    alert('hello');
-                    console.log("df");
+
+                     location.href = 'http://localhost:8080/html/goodlist.html';
+                },
+                error:function () {
+                    console.log('fuck');
+
 
                 }
             });
+
 
         });
     });

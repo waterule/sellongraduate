@@ -21,6 +21,16 @@ public class Goods {
     private String teltype;
     @Column(name = "price")
     private String price;
+    @Column(name = "imgname")
+    private String imgname;
+
+    public String getImgname() {
+        return imgname;
+    }
+
+    public void setImgname(String imgname) {
+        this.imgname = imgname;
+    }
 
     public String getPrice() {
         return price;

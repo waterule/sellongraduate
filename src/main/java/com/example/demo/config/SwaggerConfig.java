@@ -26,11 +26,11 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("毕业甩卖网开发接口")
+                .title("校摊网开发接口")
                 .description("restful 风格接口")
                 //服务条款网址
                 //.termsOfServiceUrl("http://blog.csdn.net/forezp")
-                .version("1.0")
+                .version("by liu")
                 //.contact(new Contact("帅呆了", "url", "email"))
                 .build();
     }
