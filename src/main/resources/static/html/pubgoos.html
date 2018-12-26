@@ -20,19 +20,32 @@
     <p>地址：<input id = 'addr'></input></p>
     <p>联系方式：<input id ='teltype'></input></p>
     <p>价格：<input id='price'></input></inpu></p>
-    <form action="http://localhost:8080/fileUpload" method="post" enctype="multipart/form-data">
+    <form id="form1" action="/fileUpload" method="post" enctype="multipart/form-data">
         <label>上传图片</label>
         <input type="file" name="file"/>
-        <input type="submit" value="上传"/>
+        <input type="submit" value="上传" id = "sub"/>
     </form>
+<iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
 
     <span id="fa">提交</span>
 
 </body>
 <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/form.js"></script>
 <script src="/js/common.js"></script>
 <script>
+    function showResponse(data) {
+        alert(data);
+    }
+    var imgname;
     $(function () {
+
+        $("#form1").submit(function () {
+            $(this).ajaxSubmit(function (data) {
+                imgname = data;
+            });
+            return false;
+        });
         var usrid = sessionStorage.getItem("username");
         if(usrid == null){
             alert("请先登录");
@@ -45,7 +58,7 @@
             var c =$('#name').val();
             var d =$('#teltype').val();
             var e = $('#price').val();
-            var f =
+            var f =imgname;
 
             var goods ={
 
@@ -54,7 +67,8 @@
                 name: c,
                 userid: usrid,
                 teltype: d,
-                price:e
+                price:e,
+                imgname: imgname
 
             };
             $.ajax({

@@ -96,6 +96,8 @@ $(function () {
             for(var i=0;i<data.length;i++){
                 //访问每一个的属性，根据属性拿到值
                 var str = '<div rel=i>' +
+                        '<img src="/images/' +data[i].imgname+
+                    '"></img>'+
                     '<ul><li class ="name">' + '名称：'+data[i].name+
                     '</li>' +
                     '<li class ="info">' +'物品说明：'+data[i].info+
