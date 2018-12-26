@@ -3,11 +3,16 @@ server:
 
 
 spring:
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
   mvc:
     view:
       suffix: .html
       prefix: /
     static-path-pattern: /**
+
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     show-sql: true

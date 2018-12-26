@@ -51,6 +51,10 @@
         float: left;
         margin: 30px;
     }
+    img{
+        hight:190px;
+        width: 150px;
+    }
 </style>
 <body>
 <div class="top">
@@ -96,7 +100,7 @@ $(function () {
             for(var i=0;i<data.length;i++){
                 //访问每一个的属性，根据属性拿到值
                 var str = '<div rel=i>' +
-                        '<img src="/images/' +data[i].imgname+
+                        '<img src="/files/' +data[i].imgurl+
                     '"></img>'+
                     '<ul><li class ="name">' + '名称：'+data[i].name+
                     '</li>' +

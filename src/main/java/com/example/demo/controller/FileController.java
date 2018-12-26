@@ -35,14 +35,14 @@ public class FileController {
         String fileName = file.getOriginalFilename();  // 文件名
         String suffixName = fileName.substring(fileName.lastIndexOf("."));  // 后缀名
         try{
-            filePath = ResourceUtils.getURL("src/main/resources/static/images").getPath();
+            filePath = ResourceUtils.getURL("d://imgfile").getPath();
         }catch (Exception e){
 
         }
 
         fileName = UUID.randomUUID() + suffixName; // 新文件名
         request.setAttribute("imgname",fileName);
-        String filename = filePath + "\\"+fileName;
+        String filename = filePath + fileName;
         File dest = new File(filename);
         if (!dest.getParentFile().exists()) {
             dest.getParentFile().mkdirs();
