@@ -24,7 +24,7 @@ spring:
     username: root
     password: root
     # 使用druid数据源
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     filters: stat
     maxActive: 20
     initialSize: 1
