@@ -29,7 +29,7 @@ public class Init {
     GoodsRepo grepo;
 
     @ApiOperation(value="首页", notes = "首页信息")
-   @RequestMapping(value = "/")
+   @RequestMapping(value = "/" ,method = RequestMethod.GET)
    public ModelAndView init()
     {
        return new ModelAndView("html/goodlist");
