@@ -37,7 +37,7 @@
                 success: function (data) {
                     if(data != "0" && data != null){
                         sessionStorage.setItem("username",user);
-                        location.href =  "http://localhost:8080/html/goodlist.html";
+                        location.href =  "./html/goodlist.html";
                     }
 
                     else{
@@ -53,7 +53,7 @@
         });
         $("#register").click(function () {
 
-            location.href = "http://localhost:8080/html/register.html" ;
+            location.href = "./html/register.html" ;
         });
     })
 </script>
