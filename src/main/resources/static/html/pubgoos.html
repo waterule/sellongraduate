@@ -47,7 +47,7 @@
         var usrid = sessionStorage.getItem("username");
         if(usrid == null){
             alert("请先登录");
-            location.href = "./html/login.html";
+            window.location.href = "./login.html";
         }
         $("#fa").click(function () {
 
@@ -78,7 +78,7 @@
                 data:JSON.stringify(goods),
                 success:function () {
 
-                     location.href = './html/goodlist.html';
+                     location.href = './goodlist.html';
                 },
                 error:function () {
                     console.log('fuck');
